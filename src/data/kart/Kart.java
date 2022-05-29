@@ -3,18 +3,18 @@ package data.kart;
 import java.util.HashMap;
 import java.util.Map;
 
-import data.distributor.Distributor;
+import data.distributor.DistributorItemOrderInterface;
 import data.user.User;
-import services.distributor.DistributorService;
-import services.distributor.DistributorServiceInterface;
+import services.distributor.KartDistributorService;
+import services.distributor.KartDistributorServiceInterface;
 
 public abstract class Kart implements KartInterface {
     protected long id;
 
     private static Map<Long, User> users = new HashMap<Long, User>();
-    private static Map<Long, Distributor> distributors = new HashMap<Long, Distributor>();
+    private static Map<Long, DistributorItemOrderInterface> distributors = new HashMap<Long, DistributorItemOrderInterface>();
 
-    private static DistributorServiceInterface distributorService = new DistributorService();
+    private static KartDistributorServiceInterface distributorService = new KartDistributorService();
     
     private static long nextId = 0L;
 
@@ -29,22 +29,22 @@ public abstract class Kart implements KartInterface {
     }
     
     @Override
-    public final Map<Long, Distributor> getDistributors() {
+    public final Map<Long, DistributorItemOrderInterface> getDistributors() {
         return distributors;
     }
 
     @Override
-    public final void addDistributor(Distributor dI) {
+    public final void addDistributor(DistributorItemOrderInterface dI) {
         distributorService.addDistributorToKart(this, dI);
     }
 
     @Override
-    public final void updateDistributor(Distributor dI) {
+    public final void updateDistributor(DistributorItemOrderInterface dI) {
         distributorService.updateDistributorToKart(this, dI);
     }
 
     @Override
-    public final void deleteDistributor(Distributor dI) {
+    public final void deleteDistributor(DistributorItemOrderInterface dI) {
         distributorService.deleteDistributorToKart(this, dI);
     }
 

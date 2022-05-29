@@ -1,17 +1,17 @@
 package services.distributor;
 
-import data.distributor.Distributor;
+import data.distributor.DistributorItemOrderInterface;
 import data.kart.KartInterface;
 
-public class DistributorService implements DistributorServiceInterface {
+public class KartDistributorService implements KartDistributorServiceInterface {
 
-    public void addDistributorToKart(KartInterface kart, Distributor distributor) {
+    public void addDistributorToKart(KartInterface kart, DistributorItemOrderInterface distributor) {
         try {
             if(kart!=null && distributor!=null) {
                 if(kart.getDistributors().get(distributor.getId())==null) {
                     kart.getDistributors().put(distributor.getId(), distributor);
                 } else {
-                    throw new Exception("Distributor exists already.");
+                    throw new Exception("DistributorItemOrderInterface exists already.");
                 }
             } else {
                 throw new Exception("Invalid inputs.");
@@ -21,13 +21,13 @@ public class DistributorService implements DistributorServiceInterface {
         }
     }
 
-    public Distributor getDistributorFromKart(KartInterface kart, long distributorId) {
+    public DistributorItemOrderInterface getDistributorFromKart(KartInterface kart, long distributorId) {
         try {
             if(kart!=null) {
                 if(kart.getDistributors().get(distributorId)!=null) {
                     return kart.getDistributors().get(distributorId);
                 } else {
-                    throw new Exception("Distributor does not exist.");
+                    throw new Exception("DistributorItemOrderInterface does not exist.");
                 }
             } else {
                 throw new Exception("Invalid inputs.");
@@ -38,13 +38,13 @@ public class DistributorService implements DistributorServiceInterface {
         return null;
     }
 
-    public void updateDistributorToKart(KartInterface kart, Distributor distributor) {
+    public void updateDistributorToKart(KartInterface kart, DistributorItemOrderInterface distributor) {
         try {
             if(kart!=null && distributor!=null) {
                 if(kart.getDistributors().get(distributor.getId())!=null) {
                     kart.getDistributors().put(distributor.getId(), distributor);
                 } else {
-                    throw new Exception("Distributor does not exist.");
+                    throw new Exception("DistributorItemOrderInterface does not exist.");
                 }
             } else {
                 throw new Exception("Invalid inputs.");
@@ -54,13 +54,13 @@ public class DistributorService implements DistributorServiceInterface {
         }
     }
 
-    public void deleteDistributorToKart(KartInterface kart, Distributor distributor) {
+    public void deleteDistributorToKart(KartInterface kart, DistributorItemOrderInterface distributor) {
         try {
             if(kart!=null && distributor!=null) {
                 if(kart.getDistributors().get(distributor.getId())!=null) {
                     kart.getDistributors().remove(distributor.getId());
                 } else {
-                    throw new Exception("Distributor does not exist.");
+                    throw new Exception("DistributorItemOrderInterface does not exist.");
                 }
             } else {
                 throw new Exception("Invalid inputs.");

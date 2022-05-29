@@ -1,6 +1,6 @@
 package data.item;
 
-public abstract class ItemCost implements ItemInterface, ItemCostInterface {
+public abstract class ItemCost implements ItemCostInterface {
     
     protected long id;
     protected String name;

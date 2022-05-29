@@ -1,19 +1,15 @@
 package data.distributor;
 import java.util.Map;
 
-import data.item.ItemCost;
+import data.item.ItemCostInterface;
 import data.order.OrderInterface;
-import services.item.ItemService;
-import services.item.ItemServiceInterface;
 
-public abstract class Distributor implements DistributorInterface, DistributorItemOrderInterface {
+public abstract class Distributor implements DistributorItemOrderInterface {
     protected long id;
     protected String name;
     protected String address;
-    protected Map<Long, ItemCost> items;
+    protected Map<Long, ItemCostInterface> items;
     protected Map<Long, OrderInterface> orders;
-
-    private static ItemServiceInterface itemService = new ItemService();
 
     private static long nextId = 0L;
 
@@ -41,26 +37,26 @@ public abstract class Distributor implements DistributorInterface, DistributorIt
     }
 
     @Override
-    public final Map<Long, ItemCost> getItems() {
+    public final Map<Long, ItemCostInterface> getItems() {
         return items;
     }
 
     @Override
-    public final void addItem(ItemCost item) {
-        itemService.addItemToDistributor(this, item);
+    public final void addItem(ItemCostInterface item) {
+        getItemService().addItemToDistributor(this, item);
     }
 
     @Override
-    public final void updateItem(ItemCost item) {
-        itemService.updateItemToDistributor(this, item);
+    public final void updateItem(ItemCostInterface item) {
+        getItemService().updateItemToDistributor(this, item);
     }
 
     @Override
-    public final void deleteItem(ItemCost item) {
-        itemService.deleteItemFromDistributor(this, item);
+    public final void deleteItem(ItemCostInterface item) {
+        getItemService().deleteItemFromDistributor(this, item);
     }
 
-    public final void setItems(Map<Long, ItemCost> items) {
+    public final void setItems(Map<Long, ItemCostInterface> items) {
         this.items = items;
     }
 
@@ -75,7 +71,7 @@ public abstract class Distributor implements DistributorInterface, DistributorIt
     }
 
     public final void placeOrder(OrderInterface order) {
-        orders.put(order.getId(), order);
-        // DistributorService.addDistributorToKart(this, order);
+        System.out.println("Abhishek "+order.getId());
+        order.getPlaceOrderService().placeOrder(this, order);
     }
 }

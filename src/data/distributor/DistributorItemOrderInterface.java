@@ -2,16 +2,19 @@ package data.distributor;
 
 import java.util.Map;
 
-import data.item.ItemCost;
+import data.item.ItemCostInterface;
 import data.order.OrderInterface;
+import services.item.ItemServiceInterface;
 
-public interface DistributorItemOrderInterface {
-    Map<Long,ItemCost> getItems();
+public interface DistributorItemOrderInterface extends DistributorInterface {
+    Map<Long,ItemCostInterface> getItems();
 
-    void addItem(ItemCost item);
-    void updateItem(ItemCost item);
-    void deleteItem(ItemCost item);
+    void addItem(ItemCostInterface item);
+    void updateItem(ItemCostInterface item);
+    void deleteItem(ItemCostInterface item);
     
     void placeOrder(OrderInterface order);
     Map<Long,OrderInterface> getOrders();
+
+    ItemServiceInterface getItemService();
 }

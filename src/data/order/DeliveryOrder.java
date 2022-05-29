@@ -2,27 +2,28 @@ package data.order;
 
 import java.util.List;
 
-import data.item.ItemCost;
+import data.item.ItemCostInterface;
+import services.order.placeOrder.DeliveryPlaceOrderService;
+import services.order.placeOrder.PlaceOrderServiceInterface;
 
 public class DeliveryOrder extends Order {
+    private static PlaceOrderServiceInterface placeOrderService = new DeliveryPlaceOrderService();
 
     private String deliveryAddress;
-    private STATUS status;
 
-    enum STATUS {
+    public enum STATUS {
         PLACED,
         PROGRESS,
-        ON_THE_WAY,
+        DISPATCHED,
         DELIVERED
     }
 
-    public DeliveryOrder(long userId, long distributorId, List<ItemCost> items, String deliveryAddress) {
+    public DeliveryOrder(long userId, long distributorId, List<ItemCostInterface> items, String deliveryAddress) {
         this.id = getNextId();
         this.userId = userId;
         this.distributorId = distributorId;
         this.items = items;
         this.deliveryAddress = deliveryAddress;
-        this.status = STATUS.PLACED;
     }
 
     public String getDeliveryAddress() {
@@ -33,8 +34,8 @@ public class DeliveryOrder extends Order {
         this.deliveryAddress = deliveryAddress;
     }
 
-    public STATUS getStatus() {
-        return this.status;
+    public final PlaceOrderServiceInterface getPlaceOrderService() {
+        return placeOrderService;
     }
     
 }

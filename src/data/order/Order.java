@@ -2,13 +2,20 @@ package data.order;
 import java.util.ArrayList;
 import java.util.List;
 
-import data.item.ItemCost;
+import data.item.ItemCostInterface;
 
 public abstract class Order implements OrderInterface {
     protected long id;
     protected long userId;
     protected long distributorId;
-    protected List<ItemCost> items = new ArrayList<ItemCost>();
+    private STATUS status;
+    protected List<ItemCostInterface> items = new ArrayList<ItemCostInterface>();
+
+    public enum STATUS {
+        PLACED,
+        PROGRESS,
+        COMPLETED
+    }
 
     private static long nextId = 0L;
 
@@ -28,7 +35,7 @@ public abstract class Order implements OrderInterface {
     }
 
     @Override
-    public final List<ItemCost> getItems() {
+    public final List<ItemCostInterface> getItems() {
         return this.items;
     }
 
@@ -45,5 +52,13 @@ public abstract class Order implements OrderInterface {
     public static long getNextId() {
         nextId++;
         return nextId;
+    }
+
+    public STATUS getStatus() {
+        return this.status;
+    }
+
+    public void updateStatus(STATUS status) {
+        this.status = status;
     }
 }
