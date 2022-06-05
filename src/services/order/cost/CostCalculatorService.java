@@ -1,11 +1,11 @@
 package services.order.cost;
 
-import data.order.OrderInterface;
+import data.order.Order;
 
 public class CostCalculatorService implements CostCalculatorServiceInterface {
 
     @Override
-    public float calculate(OrderInterface order) {
+    public float calculate(Order order) {
         return 0;
     }
     

@@ -3,15 +3,15 @@ package services;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import data.distributor.DistributorItemOrderInterface;
+import data.distributor.DistributorItemOrder;
 import data.distributor.Restaurent;
 import data.item.FoodItem;
-import data.item.ItemCostInterface;
+import data.item.ItemCost;
 import data.kart.FoodKart;
-import data.kart.KartInterface;
+import data.kart.KartDistributor;
 import data.order.DeliveryOrder;
 import data.order.DiningOrder;
-import data.order.OrderInterface;
+import data.order.Order;
 import data.user.PremiumUser;
 import data.user.RegularUser;
 import data.user.User;
@@ -19,7 +19,7 @@ import data.user.User;
 public class FoodKartMainService {
     public static void main(String[] args) {
 
-        KartInterface kart = new FoodKart();
+        KartDistributor kart = new FoodKart();
 
         User user1 = new RegularUser();
         User user2 = new RegularUser();
@@ -28,20 +28,20 @@ public class FoodKartMainService {
         User user4 = new PremiumUser();
         User user5 = new PremiumUser();
 
-        DistributorItemOrderInterface distributor1 = new Restaurent("restaurent 1", "Bangalore");
-        DistributorItemOrderInterface distributor2 = new Restaurent("restaurent 2", "Delhi");
-        DistributorItemOrderInterface distributor3 = new Restaurent("restaurent 3", "Gurgaon");
+        DistributorItemOrder distributor1 = new Restaurent("restaurent 1", "Bangalore");
+        DistributorItemOrder distributor2 = new Restaurent("restaurent 2", "Delhi");
+        DistributorItemOrder distributor3 = new Restaurent("restaurent 3", "Gurgaon");
 
-        ItemCostInterface item1 = new FoodItem("Paneer", 200, 10);
-        ItemCostInterface item2 = new FoodItem("Rajma", 180, 20);
-        ItemCostInterface item3 = new FoodItem("Chole", 180, 15);
-        ItemCostInterface item4 = new FoodItem("Naan", 50, 10);
-        ItemCostInterface item5 = new FoodItem("Roti", 25, 5);
-        ItemCostInterface item6 = new FoodItem("Paratha", 40, 15);
-        ItemCostInterface item7 = new FoodItem("Limca", 60, 0);
-        ItemCostInterface item8 = new FoodItem("Pepsi", 60, 0);
-        ItemCostInterface item9 = new FoodItem("Tea", 40, 10);
-        ItemCostInterface item10 = new FoodItem("Coffee", 120, 10);
+        ItemCost item1 = new FoodItem("Paneer", 200, 10);
+        ItemCost item2 = new FoodItem("Rajma", 180, 20);
+        ItemCost item3 = new FoodItem("Chole", 180, 15);
+        ItemCost item4 = new FoodItem("Naan", 50, 10);
+        ItemCost item5 = new FoodItem("Roti", 25, 5);
+        ItemCost item6 = new FoodItem("Paratha", 40, 15);
+        ItemCost item7 = new FoodItem("Limca", 60, 0);
+        ItemCost item8 = new FoodItem("Pepsi", 60, 0);
+        ItemCost item9 = new FoodItem("Tea", 40, 10);
+        ItemCost item10 = new FoodItem("Coffee", 120, 10);
 
         distributor1.addItem(item1);
         distributor1.addItem(item5);
@@ -66,27 +66,27 @@ public class FoodKartMainService {
         kart.addDistributor(distributor2);
         kart.addDistributor(distributor3);
 
-        OrderInterface order1 = new DeliveryOrder(user1.getId(),
+        Order order1 = new DeliveryOrder(user1.getId(),
                                         distributor1.getId(),
-                                        new ArrayList<ItemCostInterface>(Arrays.asList(item1, item5, item10)),
+                                        new ArrayList<ItemCost>(Arrays.asList(item1, item5, item10)),
                                         "Bangalore");
 
-        OrderInterface order2 = new DiningOrder(user2.getId(),
+        Order order2 = new DiningOrder(user2.getId(),
                                         distributor1.getId(),
-                                        new ArrayList<ItemCostInterface>(Arrays.asList(item1, item5, item9)));
+                                        new ArrayList<ItemCost>(Arrays.asList(item1, item5, item9)));
 
-        OrderInterface order3 = new DeliveryOrder(user3.getId(),
+        Order order3 = new DeliveryOrder(user3.getId(),
                                         distributor2.getId(),
-                                        new ArrayList<ItemCostInterface>(Arrays.asList(item2, item4, item8)),
+                                        new ArrayList<ItemCost>(Arrays.asList(item2, item4, item8)),
                                         "Delhi");
 
-        OrderInterface order4 = new DiningOrder(user4.getId(),
+        Order order4 = new DiningOrder(user4.getId(),
                                         distributor2.getId(),
-                                        new ArrayList<ItemCostInterface>(Arrays.asList(item1, item6, item9)));
+                                        new ArrayList<ItemCost>(Arrays.asList(item1, item6, item9)));
 
-        OrderInterface order5 = new DeliveryOrder(user5.getId(),
+        Order order5 = new DeliveryOrder(user5.getId(),
                                         distributor3.getId(),
-                                        new ArrayList<ItemCostInterface>(Arrays.asList(item2, item4, item10)),
+                                        new ArrayList<ItemCost>(Arrays.asList(item2, item4, item10)),
                                         "Gurgaon");
         
         distributor1.placeOrder(order1);

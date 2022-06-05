@@ -8,7 +8,7 @@ public abstract class User {
         return this.id;
     }
 
-    public static long getNextId() {
+    protected static long getNextId() {
         nextId++;
         return nextId;
     }

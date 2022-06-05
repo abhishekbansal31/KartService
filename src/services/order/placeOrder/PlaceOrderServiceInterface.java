@@ -1,9 +1,9 @@
 package services.order.placeOrder;
 
-import data.distributor.DistributorItemOrderInterface;
-import data.order.OrderInterface;
+import data.distributor.DistributorItemOrder;
+import data.order.Order;
 import services.order.OrderServiceInterface;
 
 public interface PlaceOrderServiceInterface extends OrderServiceInterface {
-    void placeOrder(DistributorItemOrderInterface distributor, OrderInterface order);
+    void placeOrder(DistributorItemOrder distributor, Order order);
 }

@@ -1,17 +1,17 @@
 package services.item;
 
-import data.distributor.DistributorItemOrderInterface;
-import data.item.ItemCostInterface;
+import data.distributor.DistributorItemOrder;
+import data.item.ItemCost;
 
 public class ItemService implements ItemServiceInterface {
 
-    public void addItemToDistributor(DistributorItemOrderInterface distributor, ItemCostInterface item) {
+    public void addItemToDistributor(DistributorItemOrder distributor, ItemCost item) {
         try {
             if(item!=null && distributor!=null) {
                 if(distributor.getItems().get(item.getId())==null) {
                     distributor.getItems().put(item.getId(), item);
                 } else {
-                    throw new Exception("ItemCostInterface exists already.");
+                    throw new Exception("ItemCost exists already.");
                 }
             } else {
                 throw new Exception("Invalid inputs.");
@@ -21,13 +21,13 @@ public class ItemService implements ItemServiceInterface {
         }
     }
 
-    public ItemCostInterface getItemFromDistributor(DistributorItemOrderInterface distributor, long itemId) {
+    public ItemCost getItemFromDistributor(DistributorItemOrder distributor, long itemId) {
         try {
             if(distributor!=null) {
                 if(distributor.getItems().get(itemId)!=null) {
                     return distributor.getItems().get(itemId);
                 } else {
-                    throw new Exception("ItemCostInterface does not exist.");
+                    throw new Exception("ItemCost does not exist.");
                 }
             } else {
                 throw new Exception("Invalid inputs.");
@@ -38,13 +38,13 @@ public class ItemService implements ItemServiceInterface {
         return null;
     }
 
-    public void updateItemToDistributor(DistributorItemOrderInterface distributor, ItemCostInterface item) {
+    public void updateItemToDistributor(DistributorItemOrder distributor, ItemCost item) {
         try {
             if(item!=null && distributor!=null) {
                 if(distributor.getItems().get(item.getId())!=null) {
                     distributor.getItems().put(item.getId(), item);
                 } else {
-                    throw new Exception("ItemCostInterface exists already.");
+                    throw new Exception("ItemCost exists already.");
                 }
             } else {
                 throw new Exception("Invalid inputs.");
@@ -54,13 +54,13 @@ public class ItemService implements ItemServiceInterface {
         }
     }
 
-    public void deleteItemFromDistributor(DistributorItemOrderInterface distributor, ItemCostInterface item) {
+    public void deleteItemFromDistributor(DistributorItemOrder distributor, ItemCost item) {
         try {
             if(item!=null && distributor!=null) {
                 if(distributor.getItems().get(item.getId())!=null) {
                     distributor.getItems().remove(item.getId());
                 } else {
-                    throw new Exception("ItemCostInterface does not exist.");
+                    throw new Exception("ItemCost does not exist.");
                 }
             } else {
                 throw new Exception("Invalid inputs.");

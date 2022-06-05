@@ -2,7 +2,7 @@ package data.order;
 
 import java.util.List;
 
-import data.item.ItemCostInterface;
+import data.item.ItemCost;
 import services.order.placeOrder.DeliveryPlaceOrderService;
 import services.order.placeOrder.PlaceOrderServiceInterface;
 
@@ -18,7 +18,7 @@ public class DeliveryOrder extends Order {
         DELIVERED
     }
 
-    public DeliveryOrder(long userId, long distributorId, List<ItemCostInterface> items, String deliveryAddress) {
+    public DeliveryOrder(long userId, long distributorId, List<ItemCost> items, String deliveryAddress) {
         this.id = getNextId();
         this.userId = userId;
         this.distributorId = distributorId;

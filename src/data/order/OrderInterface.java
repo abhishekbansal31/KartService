@@ -2,8 +2,8 @@ package data.order;
 
 import java.util.List;
 
-import data.distributor.DistributorItemOrderInterface;
-import data.item.ItemCostInterface;
+import data.distributor.DistributorItemOrder;
+import data.item.ItemCost;
 import data.order.Order.STATUS;
 
 public interface OrderInterface {
@@ -13,9 +13,9 @@ public interface OrderInterface {
     STATUS getStatus();
     void updateStatus(STATUS status);
     
-    List<ItemCostInterface> getItems();
+    List<ItemCost> getItems();
 
     float getTotalAmount();
     float getDiscountedAmount();
-    void placeOrder(DistributorItemOrderInterface distributor);
+    void placeOrder(DistributorItemOrder distributor);
 }

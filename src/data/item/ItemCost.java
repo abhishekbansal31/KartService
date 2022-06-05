@@ -1,28 +1,11 @@
 package data.item;
 
-public abstract class ItemCost implements ItemCostInterface {
+public abstract class ItemCost extends ItemAbstract implements ItemCostInterface {
     
-    protected long id;
-    protected String name;
     protected int price;
     protected int discount;
 
     private static long nextId = 0L;
-
-
-    @Override
-    public final long getId() {
-        return id;
-    }
-
-    @Override
-    public final String getName() {
-        return name;
-    }
-
-    public final void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public final int getPrice() {
@@ -47,7 +30,7 @@ public abstract class ItemCost implements ItemCostInterface {
         return (float)(this.getPrice() - this.getDiscount()*this.getPrice());
     }
     
-    public static long getNextId() {
+    protected static long getNextId() {
         nextId++;
         return nextId;
     }

@@ -1,11 +1,11 @@
 package services.item;
 
-import data.distributor.DistributorItemOrderInterface;
-import data.item.ItemCostInterface;
+import data.distributor.DistributorItemOrder;
+import data.item.ItemCost;
 
 public interface ItemServiceInterface {
-    void addItemToDistributor(DistributorItemOrderInterface distributor, ItemCostInterface item);
-    ItemCostInterface getItemFromDistributor(DistributorItemOrderInterface distributor, long itemId);
-    void updateItemToDistributor(DistributorItemOrderInterface distributor, ItemCostInterface item);
-    void deleteItemFromDistributor(DistributorItemOrderInterface distributor, ItemCostInterface item);
+    void addItemToDistributor(DistributorItemOrder distributor, ItemCost item);
+    ItemCost getItemFromDistributor(DistributorItemOrder distributor, long itemId);
+    void updateItemToDistributor(DistributorItemOrder distributor, ItemCost item);
+    void deleteItemFromDistributor(DistributorItemOrder distributor, ItemCost item);
 }
