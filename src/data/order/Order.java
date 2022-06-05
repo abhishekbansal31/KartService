@@ -2,7 +2,9 @@ package data.order;
 import java.util.ArrayList;
 import java.util.List;
 
+import data.distributor.DistributorItemOrderInterface;
 import data.item.ItemCostInterface;
+import services.order.placeOrder.PlaceOrderServiceInterface;
 
 public abstract class Order implements OrderInterface {
     protected long id;
@@ -18,6 +20,8 @@ public abstract class Order implements OrderInterface {
     }
 
     private static long nextId = 0L;
+
+    protected abstract PlaceOrderServiceInterface getPlaceOrderService();
 
     @Override
     public final long getId() {
@@ -60,5 +64,9 @@ public abstract class Order implements OrderInterface {
 
     public void updateStatus(STATUS status) {
         this.status = status;
+    }
+
+    public final void placeOrder(DistributorItemOrderInterface distributor) {
+        getPlaceOrderService().placeOrder(distributor, this);
     }
 }

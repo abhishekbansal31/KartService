@@ -3,6 +3,7 @@ import java.util.Map;
 
 import data.item.ItemCostInterface;
 import data.order.OrderInterface;
+import services.item.ItemServiceInterface;
 
 public abstract class Distributor implements DistributorItemOrderInterface {
     protected long id;
@@ -12,6 +13,8 @@ public abstract class Distributor implements DistributorItemOrderInterface {
     protected Map<Long, OrderInterface> orders;
 
     private static long nextId = 0L;
+
+    protected abstract ItemServiceInterface getItemService();
 
     @Override
     public final long getId() {
@@ -71,7 +74,6 @@ public abstract class Distributor implements DistributorItemOrderInterface {
     }
 
     public final void placeOrder(OrderInterface order) {
-        System.out.println("Abhishek "+order.getId());
-        order.getPlaceOrderService().placeOrder(this, order);
+        order.placeOrder(this);
     }
 }

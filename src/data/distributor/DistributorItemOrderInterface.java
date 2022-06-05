@@ -4,7 +4,6 @@ import java.util.Map;
 
 import data.item.ItemCostInterface;
 import data.order.OrderInterface;
-import services.item.ItemServiceInterface;
 
 public interface DistributorItemOrderInterface extends DistributorInterface {
     Map<Long,ItemCostInterface> getItems();
@@ -15,6 +14,4 @@ public interface DistributorItemOrderInterface extends DistributorInterface {
     
     void placeOrder(OrderInterface order);
     Map<Long,OrderInterface> getOrders();
-
-    ItemServiceInterface getItemService();
 }
