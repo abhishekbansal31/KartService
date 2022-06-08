@@ -1,15 +1,15 @@
 package services.user.distributor;
 
-import data.kart.KartDistributor;
-import data.user.distributor.DistributorItemOrder;
+import data.kart.KartDistributable;
+import data.user.distributor.Distributable;
 
 public interface KartDistributorServiceInterface {
     
-    void addDistributorToKart(KartDistributor kart, DistributorItemOrder distributor);
+    void addDistributorToKart(KartDistributable kart, Distributable distributor);
     
-    DistributorItemOrder getDistributorFromKart(KartDistributor kart, long distributorId);
+    Distributable getDistributorFromKart(KartDistributable kart, long distributorId);
 
-    void updateDistributorToKart(KartDistributor kart, DistributorItemOrder distributor);
+    void updateDistributorToKart(KartDistributable kart, Distributable distributor);
 
-    void deleteDistributorToKart(KartDistributor kart, DistributorItemOrder distributor);
+    void deleteDistributorToKart(KartDistributable kart, Distributable distributor);
 }

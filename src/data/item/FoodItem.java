@@ -1,6 +1,6 @@
 package data.item;
 
-public class FoodItem extends ItemCost {
+public class FoodItem extends ItemSellable {
 
     public FoodItem(String name) {
         this.name = name;

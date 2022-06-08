@@ -1,8 +1,7 @@
 package data.user.consumer;
 
-import data.user.UserAbstract;
 
-public class RegularUser extends UserAbstract {
+public class RegularUser extends Consumable {
 
     public RegularUser(String name, String address, String phone) {
         this.setId(getNextId());

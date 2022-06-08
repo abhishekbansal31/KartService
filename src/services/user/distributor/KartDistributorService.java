@@ -1,11 +1,11 @@
 package services.user.distributor;
 
-import data.kart.KartDistributor;
-import data.user.distributor.DistributorItemOrder;
+import data.kart.KartDistributable;
+import data.user.distributor.Distributable;
 
 public class KartDistributorService implements KartDistributorServiceInterface {
 
-    public void addDistributorToKart(KartDistributor kart, DistributorItemOrder distributor) {
+    public void addDistributorToKart(KartDistributable kart, Distributable distributor) {
         try {
             if(kart!=null && distributor!=null) {
                 if(kart.getDistributors().get(distributor.getId())==null) {
@@ -21,7 +21,7 @@ public class KartDistributorService implements KartDistributorServiceInterface {
         }
     }
 
-    public DistributorItemOrder getDistributorFromKart(KartDistributor kart, long distributorId) {
+    public Distributable getDistributorFromKart(KartDistributable kart, long distributorId) {
         try {
             if(kart!=null) {
                 if(kart.getDistributors().get(distributorId)!=null) {
@@ -38,7 +38,7 @@ public class KartDistributorService implements KartDistributorServiceInterface {
         return null;
     }
 
-    public void updateDistributorToKart(KartDistributor kart, DistributorItemOrder distributor) {
+    public void updateDistributorToKart(KartDistributable kart, Distributable distributor) {
         try {
             if(kart!=null && distributor!=null) {
                 if(kart.getDistributors().get(distributor.getId())!=null) {
@@ -54,7 +54,7 @@ public class KartDistributorService implements KartDistributorServiceInterface {
         }
     }
 
-    public void deleteDistributorToKart(KartDistributor kart, DistributorItemOrder distributor) {
+    public void deleteDistributorToKart(KartDistributable kart, Distributable distributor) {
         try {
             if(kart!=null && distributor!=null) {
                 if(kart.getDistributors().get(distributor.getId())!=null) {

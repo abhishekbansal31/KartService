@@ -1,6 +1,6 @@
 package data.item;
 
-public interface ItemCostInterface extends ItemInterface {
+public interface ItemSellableInterface {
     int getPrice();
     boolean isAvailable();
     int getDiscount();

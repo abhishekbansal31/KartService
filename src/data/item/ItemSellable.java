@@ -1,6 +1,6 @@
 package data.item;
 
-public abstract class ItemCost extends ItemAbstract implements ItemCostInterface {
+public abstract class ItemSellable extends ItemAbstract implements ItemSellableInterface {
     
     protected boolean available;
     protected int price;

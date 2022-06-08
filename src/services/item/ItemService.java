@@ -1,11 +1,11 @@
 package services.item;
 
-import data.item.ItemCost;
-import data.user.distributor.DistributorItemOrder;
+import data.item.ItemSellable;
+import data.user.distributor.Distributable;
 
 public class ItemService implements ItemServiceInterface {
 
-    public void addItemToDistributor(DistributorItemOrder distributor, ItemCost item) {
+    public void addItemToDistributor(Distributable distributor, ItemSellable item) {
         try {
             if(item!=null && distributor!=null) {
                 if(distributor.getItems().get(item.getId())==null) {
@@ -21,7 +21,7 @@ public class ItemService implements ItemServiceInterface {
         }
     }
 
-    public ItemCost getItemFromDistributor(DistributorItemOrder distributor, long itemId) {
+    public ItemSellable getItemFromDistributor(Distributable distributor, long itemId) {
         try {
             if(distributor!=null) {
                 if(distributor.getItems().get(itemId)!=null) {
@@ -38,7 +38,7 @@ public class ItemService implements ItemServiceInterface {
         return null;
     }
 
-    public void updateItemToDistributor(DistributorItemOrder distributor, ItemCost item) {
+    public void updateItemToDistributor(Distributable distributor, ItemSellable item) {
         try {
             if(item!=null && distributor!=null) {
                 if(distributor.getItems().get(item.getId())!=null) {
@@ -54,7 +54,7 @@ public class ItemService implements ItemServiceInterface {
         }
     }
 
-    public void deleteItemFromDistributor(DistributorItemOrder distributor, ItemCost item) {
+    public void deleteItemFromDistributor(Distributable distributor, ItemSellable item) {
         try {
             if(item!=null && distributor!=null) {
                 if(distributor.getItems().get(item.getId())!=null) {

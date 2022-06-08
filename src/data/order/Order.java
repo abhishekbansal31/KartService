@@ -2,8 +2,8 @@ package data.order;
 import java.util.ArrayList;
 import java.util.List;
 
-import data.item.ItemCost;
-import data.user.distributor.DistributorItemOrder;
+import data.item.ItemSellable;
+import data.user.distributor.Distributable;
 import services.order.placeOrder.PlaceOrderServiceInterface;
 
 public abstract class Order implements OrderInterface {
@@ -11,7 +11,7 @@ public abstract class Order implements OrderInterface {
     protected long userId;
     protected long distributorId;
     private STATUS status;
-    protected List<ItemCost> items = new ArrayList<ItemCost>();
+    protected List<ItemSellable> items = new ArrayList<ItemSellable>();
 
     public enum STATUS {
         PLACED,
@@ -39,7 +39,7 @@ public abstract class Order implements OrderInterface {
     }
 
     @Override
-    public final List<ItemCost> getItems() {
+    public final List<ItemSellable> getItems() {
         return this.items;
     }
 
@@ -66,7 +66,7 @@ public abstract class Order implements OrderInterface {
         this.status = status;
     }
 
-    public final void placeOrder(DistributorItemOrder distributor) {
+    public final void placeOrder(Distributable distributor) {
         getPlaceOrderService().placeOrder(distributor, this);
     }
 }

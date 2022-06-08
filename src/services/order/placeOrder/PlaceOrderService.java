@@ -2,10 +2,10 @@ package services.order.placeOrder;
 
 import data.order.Order;
 import data.order.Order.STATUS;
-import data.user.distributor.DistributorItemOrder;
+import data.user.distributor.Distributable;
 
 public abstract class PlaceOrderService implements PlaceOrderServiceInterface {
-    public void placeOrder(DistributorItemOrder distributor, Order order) {
+    public void placeOrder(Distributable distributor, Order order) {
         try {
             if(distributor!=null && order!=null) {
                 if(distributor.getOrders().get(order.getId())==null) {

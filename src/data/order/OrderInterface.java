@@ -2,9 +2,9 @@ package data.order;
 
 import java.util.List;
 
-import data.item.ItemCost;
+import data.item.ItemSellable;
 import data.order.Order.STATUS;
-import data.user.distributor.DistributorItemOrder;
+import data.user.distributor.Distributable;
 
 public interface OrderInterface {
     long getId();
@@ -13,9 +13,9 @@ public interface OrderInterface {
     STATUS getStatus();
     void updateStatus(STATUS status);
     
-    List<ItemCost> getItems();
+    List<ItemSellable> getItems();
 
     float getTotalAmount();
     float getDiscountedAmount();
-    void placeOrder(DistributorItemOrder distributor);
+    void placeOrder(Distributable distributor);
 }
