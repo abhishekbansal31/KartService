@@ -2,9 +2,9 @@ package data.order;
 
 import java.util.List;
 
-import data.distributor.DistributorItemOrder;
 import data.item.ItemCost;
 import data.order.Order.STATUS;
+import data.user.distributor.DistributorItemOrder;
 
 public interface OrderInterface {
     long getId();

@@ -1,16 +1,15 @@
-package data.distributor;
+package data.user.distributor;
 import java.util.Map;
 
 import data.item.ItemCost;
 import data.order.Order;
+import data.user.UserAbstract;
 import services.item.ItemServiceInterface;
 
-public abstract class DistributorItemOrder extends DistributorAbstract implements DistributorItemOrderInterface {
+public abstract class DistributorItemOrder extends UserAbstract implements DistributorItemOrderInterface {
 
     protected Map<Long, ItemCost> items;
     protected Map<Long, Order> orders;
-
-    private static long nextId = 0L;
 
     protected abstract ItemServiceInterface getItemService();
 
@@ -43,9 +42,8 @@ public abstract class DistributorItemOrder extends DistributorAbstract implement
         return orders;
     }
 
-    protected static final long getNextId() {
-        nextId++;
-        return nextId;
+    protected final void setOrders(Map<Long, Order> orders) {
+        this.orders = orders;
     }
 
     public final void placeOrder(Order order) {

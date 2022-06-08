@@ -2,8 +2,8 @@ package data.order;
 import java.util.ArrayList;
 import java.util.List;
 
-import data.distributor.DistributorItemOrder;
 import data.item.ItemCost;
+import data.user.distributor.DistributorItemOrder;
 import services.order.placeOrder.PlaceOrderServiceInterface;
 
 public abstract class Order implements OrderInterface {

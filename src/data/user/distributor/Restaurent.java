@@ -1,4 +1,4 @@
-package data.distributor;
+package data.user.distributor;
 import java.util.HashMap;
 
 import data.item.ItemCost;
@@ -10,12 +10,13 @@ public class Restaurent extends DistributorItemOrder {
 
     private static ItemServiceInterface itemService = new ItemService();
 
-    public Restaurent(String name, String address) {
-        this.id = getNextId();
-        this.name = name;
-        this.address = address;
-        this.items = new HashMap<Long, ItemCost>();
-        this.orders = new HashMap<Long, Order>();
+    public Restaurent(String name, String address, String phone) {
+        this.setId(getNextId());
+        this.setName(name);
+        this.setAddress(address);
+        this.setPhone(phone);
+        this.setItems(new HashMap<Long, ItemCost>());
+        this.setOrders(new HashMap<Long, Order>());
     }
 
     public final ItemServiceInterface getItemService() {

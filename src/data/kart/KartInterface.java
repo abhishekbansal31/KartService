@@ -2,10 +2,10 @@ package data.kart;
 
 import java.util.Map;
 
-import data.user.User;
+import data.user.UserAbstract;
 
 public interface KartInterface {
     
     long getId();
-    Map<Long, User> getUsers();
+    Map<Long, UserAbstract> getUsers();
 }

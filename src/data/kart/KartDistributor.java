@@ -3,9 +3,9 @@ package data.kart;
 import java.util.HashMap;
 import java.util.Map;
 
-import data.distributor.DistributorItemOrder;
-import services.distributor.KartDistributorService;
-import services.distributor.KartDistributorServiceInterface;
+import data.user.distributor.DistributorItemOrder;
+import services.user.distributor.KartDistributorService;
+import services.user.distributor.KartDistributorServiceInterface;
 
 public abstract class KartDistributor extends KartAbstract implements KartDistributorInterface {
 

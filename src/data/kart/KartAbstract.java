@@ -3,10 +3,10 @@ package data.kart;
 import java.util.HashMap;
 import java.util.Map;
 
-import data.user.User;
+import data.user.UserAbstract;
 public abstract class KartAbstract implements KartInterface {
     protected long id;
-    private static Map<Long, User> users = new HashMap<Long, User>();
+    private static Map<Long, UserAbstract> users = new HashMap<Long, UserAbstract>();
     
     @Override
     public final long getId() {
@@ -14,7 +14,7 @@ public abstract class KartAbstract implements KartInterface {
     }
 
     @Override
-    public final Map<Long, User> getUsers() {
+    public final Map<Long, UserAbstract> getUsers() {
         return users;
     }
 }

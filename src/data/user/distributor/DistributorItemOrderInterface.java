@@ -1,11 +1,12 @@
-package data.distributor;
+package data.user.distributor;
 
 import java.util.Map;
 
 import data.item.ItemCost;
 import data.order.Order;
+import data.user.UserInterface;
 
-public interface DistributorItemOrderInterface extends DistributorInterface {
+public interface DistributorItemOrderInterface extends UserInterface {
     Map<Long,ItemCost> getItems();
 
     void addItem(ItemCost item);

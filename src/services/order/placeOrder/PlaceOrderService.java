@@ -1,8 +1,8 @@
 package services.order.placeOrder;
 
-import data.distributor.DistributorItemOrder;
 import data.order.Order;
 import data.order.Order.STATUS;
+import data.user.distributor.DistributorItemOrder;
 
 public abstract class PlaceOrderService implements PlaceOrderServiceInterface {
     public void placeOrder(DistributorItemOrder distributor, Order order) {

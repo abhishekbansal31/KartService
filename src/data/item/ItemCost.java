@@ -2,6 +2,7 @@ package data.item;
 
 public abstract class ItemCost extends ItemAbstract implements ItemCostInterface {
     
+    protected boolean available;
     protected int price;
     protected int discount;
 
@@ -14,6 +15,15 @@ public abstract class ItemCost extends ItemAbstract implements ItemCostInterface
 
     public final void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public final boolean isAvailable() {
+        return available;
+    }
+
+    public final void setAvailable(boolean available) {
+        this.available = available;
     }
 
     @Override

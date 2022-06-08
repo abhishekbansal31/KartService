@@ -1,7 +1,7 @@
 package services.item;
 
-import data.distributor.DistributorItemOrder;
 import data.item.ItemCost;
+import data.user.distributor.DistributorItemOrder;
 
 public class ItemService implements ItemServiceInterface {
 

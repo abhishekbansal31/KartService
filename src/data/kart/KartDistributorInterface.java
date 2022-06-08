@@ -2,7 +2,7 @@ package data.kart;
 
 import java.util.Map;
 
-import data.distributor.DistributorItemOrder;
+import data.user.distributor.DistributorItemOrder;
 
 public interface KartDistributorInterface extends KartInterface {
     Map<Long, DistributorItemOrder> getDistributors();

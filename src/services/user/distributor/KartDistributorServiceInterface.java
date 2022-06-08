@@ -1,7 +1,7 @@
-package services.distributor;
+package services.user.distributor;
 
-import data.distributor.DistributorItemOrder;
 import data.kart.KartDistributor;
+import data.user.distributor.DistributorItemOrder;
 
 public interface KartDistributorServiceInterface {
     

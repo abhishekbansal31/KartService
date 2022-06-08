@@ -1,7 +1,7 @@
 package services.order.placeOrder;
 
-import data.distributor.DistributorItemOrder;
 import data.order.Order;
+import data.user.distributor.DistributorItemOrder;
 import services.order.OrderServiceInterface;
 
 public interface PlaceOrderServiceInterface extends OrderServiceInterface {
