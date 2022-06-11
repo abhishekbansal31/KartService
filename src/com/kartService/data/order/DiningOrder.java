@@ -8,22 +8,14 @@ import com.kartService.services.order.placeOrder.PlaceOrderServiceInterface;
 
 public class DiningOrder extends Order {
     
-    public DiningOrder(long userId, long distributorId, List<ItemSellable> items) {
-        this(userId, distributorId, items, new DiningPlaceOrderService());
+    public DiningOrder(long consumerId, long distributorId, List<ItemSellable> items) {
+        this(consumerId, distributorId, items, new DiningPlaceOrderService());
     }
-    public DiningOrder(long userId, long distributorId, List<ItemSellable> items, PlaceOrderServiceInterface service) {
+    public DiningOrder(long consumerId, long distributorId, List<ItemSellable> items, PlaceOrderServiceInterface service) {
         this.setId(getNextId());
-        this.setUserId(userId);
+        this.setConsumerId(consumerId);
         this.setDistributorId(distributorId);
         this.setItems(items);
         this.setPlaceOrderService(service);
-    }
-
-    protected final PlaceOrderServiceInterface getPlaceOrderService() {
-        return placeOrderService;
-    }
-
-    public final void setPlaceOrderService(PlaceOrderServiceInterface service) {
-        this.placeOrderService = service;
     }
 }

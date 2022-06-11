@@ -4,12 +4,11 @@ import java.util.List;
 
 import com.kartService.data.item.ItemSellable;
 import com.kartService.data.order.Order.STATUS;
-import com.kartService.data.user.distributor.Distributable;
 import com.kartService.services.order.placeOrder.PlaceOrderServiceInterface;
 
 public interface OrderInterface {
     long getId();
-    long getUserId();
+    long getConsumerId();
     long getDistributorId();
     STATUS getStatus();
     void updateStatus(STATUS status);
@@ -18,6 +17,7 @@ public interface OrderInterface {
 
     float getTotalAmount();
     float getDiscountedAmount();
-    void placeOrder(Distributable distributor);
+
+    PlaceOrderServiceInterface getPlaceOrderService();
     void setPlaceOrderService(PlaceOrderServiceInterface service);
 }

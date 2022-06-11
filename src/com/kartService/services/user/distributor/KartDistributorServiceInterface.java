@@ -2,18 +2,18 @@ package com.kartService.services.user.distributor;
 
 import java.util.Map;
 
-import com.kartService.data.kart.KartDistributable;
+import com.kartService.data.kart.KartCommercial;
 import com.kartService.data.user.distributor.Distributable;
 
 public interface KartDistributorServiceInterface {
     
-    void addDistributorToKart(KartDistributable kart, Distributable distributor);
-    
-    Distributable getDistributorFromKart(KartDistributable kart, long distributorId);
-    
-    Map<Long, Distributable> getDistributorsFromKart(KartDistributable kart);
+    Map<Long, Distributable> getDistributorsFromKart(KartCommercial kart);
 
-    void updateDistributorToKart(KartDistributable kart, Distributable distributor);
+    Distributable getDistributor(KartCommercial kart, long distributorId);
+    
+    void addDistributorToKart(KartCommercial kart, Distributable distributor);
+    
+    void updateDistributorToKart(KartCommercial kart, Distributable distributor);
 
-    void deleteDistributorToKart(KartDistributable kart, Distributable distributor);
+    void deleteDistributorToKart(KartCommercial kart, long distributorId);
 }

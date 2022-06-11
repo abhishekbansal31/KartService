@@ -8,14 +8,18 @@ import com.kartService.services.item.ItemServiceInterface;
 
 public abstract class Distributable extends UserAbstract implements DistributableInterface {
 
-    protected Map<Long, ItemSellable> items;
-    protected Map<Long, Order> orders;
+    private Map<Long, ItemSellable> items;
+    private Map<Long, Order> orders;
 
-    protected abstract ItemServiceInterface getItemService();
+    private ItemServiceInterface itemService;
 
     @Override
     public final Map<Long, ItemSellable> getItems() {
         return items;
+    }
+
+    protected final void setItems(Map<Long, ItemSellable> items) {
+        this.items = items;
     }
 
     @Override
@@ -33,8 +37,9 @@ public abstract class Distributable extends UserAbstract implements Distributabl
         getItemService().deleteItemFromDistributor(this, item);
     }
 
-    public final void setItems(Map<Long, ItemSellable> items) {
-        this.items = items;
+    @Override
+    public void placeOrder(Order order) {
+        orders.put(order.getId(), order);
     }
 
     @Override
@@ -46,7 +51,16 @@ public abstract class Distributable extends UserAbstract implements Distributabl
         this.orders = orders;
     }
 
-    public final void placeOrder(Order order) {
-        order.placeOrder(this);
+    @Override
+    public Order getOrder(Long orderId) {
+        return getOrders().get(orderId);
+    }
+
+    private final ItemServiceInterface getItemService() {
+        return itemService;
+    }
+
+    public final void setItemService(ItemServiceInterface service) {
+        this.itemService = service;
     }
 }

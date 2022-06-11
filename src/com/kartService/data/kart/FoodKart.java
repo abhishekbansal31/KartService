@@ -1,19 +1,18 @@
 package com.kartService.data.kart;
 
+import com.kartService.services.user.consumer.KartConsumerService;
+import com.kartService.services.user.consumer.KartConsumerServiceInterface;
 import com.kartService.services.user.distributor.KartDistributorService;
 import com.kartService.services.user.distributor.KartDistributorServiceInterface;
 
-public class FoodKart extends KartDistributable {
+public class FoodKart extends KartCommercial {
     public FoodKart() {
-        this(new KartDistributorService());
+        this(new KartDistributorService(), new KartConsumerService());
     }
 
-    public FoodKart(KartDistributorServiceInterface service) {
+    public FoodKart(KartDistributorServiceInterface distributorService, KartConsumerServiceInterface consumerService) {
         this.setId(getNextId());
-        this.setDistributorService(service);
-    }
-    
-    public final void setDistributorService(KartDistributorServiceInterface service) {
-        this.distributorService = service;
+        this.setDistributorService(distributorService);
+        this.setConsumerService(consumerService);
     }
 }

@@ -16,12 +16,12 @@ public class DeliveryOrder extends Order {
         DELIVERED
     }
 
-    public DeliveryOrder(long userId, long distributorId, List<ItemSellable> items, String deliveryAddress) {
-        this(userId, distributorId, items, deliveryAddress, new DeliveryPlaceOrderService());
+    public DeliveryOrder(long consumerId, long distributorId, List<ItemSellable> items, String deliveryAddress) {
+        this(consumerId, distributorId, items, deliveryAddress, new DeliveryPlaceOrderService());
     }
-    public DeliveryOrder(long userId, long distributorId, List<ItemSellable> items, String deliveryAddress, PlaceOrderServiceInterface service) {
+    public DeliveryOrder(long consumerId, long distributorId, List<ItemSellable> items, String deliveryAddress, PlaceOrderServiceInterface service) {
         this.setId(getNextId());
-        this.setUserId(userId);
+        this.setConsumerId(consumerId);
         this.setDistributorId(distributorId);
         this.setItems(items);
         this.setDeliveryAddress(this.deliveryAddress);
@@ -34,14 +34,6 @@ public class DeliveryOrder extends Order {
 
     private void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
-    }
-
-    protected final PlaceOrderServiceInterface getPlaceOrderService() {
-        return placeOrderService;
-    }
-
-    public final void setPlaceOrderService(PlaceOrderServiceInterface service) {
-        this.placeOrderService = service;
     }
     
 }

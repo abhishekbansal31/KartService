@@ -13,7 +13,9 @@ public interface DistributableInterface {
     void updateItem(ItemSellable item);
     void deleteItem(ItemSellable item);
     
-    void placeOrder(Order order);
     Map<Long,Order> getOrders();
-    void setItemService(ItemServiceInterface service);
+    Order getOrder(Long orderId);
+    void placeOrder(Order order);
+
+    void setItemService(ItemServiceInterface service);  // the service can be changed if the distributor becomes a prime or 5 star distributor
 }

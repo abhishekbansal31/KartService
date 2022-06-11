@@ -3,12 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kartService.data.item.ItemSellable;
-import com.kartService.data.user.distributor.Distributable;
 import com.kartService.services.order.placeOrder.PlaceOrderServiceInterface;
 
 public abstract class Order implements OrderInterface {
     private long id;
-    private long userId;
+    private long consumerId;
     private long distributorId;
     private STATUS status;
     private List<ItemSellable> items = new ArrayList<ItemSellable>();
@@ -21,8 +20,7 @@ public abstract class Order implements OrderInterface {
 
     private static long nextId = 0L;
 
-    protected PlaceOrderServiceInterface placeOrderService;
-    protected abstract PlaceOrderServiceInterface getPlaceOrderService();
+    private PlaceOrderServiceInterface placeOrderService;
 
     @Override
     public final long getId() {
@@ -34,12 +32,12 @@ public abstract class Order implements OrderInterface {
     }
 
     @Override
-    public final long getUserId() {
-        return userId;
+    public final long getConsumerId() {
+        return consumerId;
     }
 
-    protected final void setUserId(long userId) {
-        this.userId = userId;
+    protected final void setConsumerId(long consumerId) {
+        this.consumerId = consumerId;
     }
 
     @Override
@@ -83,7 +81,13 @@ public abstract class Order implements OrderInterface {
         this.status = status;
     }
 
-    public final void placeOrder(Distributable distributor) {
-        getPlaceOrderService().placeOrder(distributor, this);
+    @Override
+    public final PlaceOrderServiceInterface getPlaceOrderService() {
+        return placeOrderService;
+    }
+
+    @Override
+    public final void setPlaceOrderService(PlaceOrderServiceInterface service) {
+        this.placeOrderService = service;
     }
 }
