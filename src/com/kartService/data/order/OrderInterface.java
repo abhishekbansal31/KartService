@@ -3,6 +3,7 @@ package com.kartService.data.order;
 import java.util.List;
 
 import com.kartService.data.item.ItemSellable;
+import com.kartService.data.kart.KartCommercial;
 import com.kartService.data.order.Order.STATUS;
 import com.kartService.services.order.placeOrder.PlaceOrderServiceInterface;
 
@@ -18,6 +19,6 @@ public interface OrderInterface {
     float getTotalAmount();
     float getDiscountedAmount();
 
-    PlaceOrderServiceInterface getPlaceOrderService();
+    void placeOrder(KartCommercial kart);
     void setPlaceOrderService(PlaceOrderServiceInterface service);
 }

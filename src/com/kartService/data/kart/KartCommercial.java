@@ -91,6 +91,6 @@ public abstract class KartCommercial extends KartAbstract implements KartCommerc
 
     @Override
     public void placeOrder(Order order) {
-        order.getPlaceOrderService().placeOrder(this, order);
+        order.placeOrder(this);
     }
 }

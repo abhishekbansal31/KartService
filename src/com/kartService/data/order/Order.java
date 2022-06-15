@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kartService.data.item.ItemSellable;
+import com.kartService.data.kart.KartCommercial;
 import com.kartService.services.order.placeOrder.PlaceOrderServiceInterface;
 
 public abstract class Order implements OrderInterface {
@@ -82,7 +83,11 @@ public abstract class Order implements OrderInterface {
     }
 
     @Override
-    public final PlaceOrderServiceInterface getPlaceOrderService() {
+    public void placeOrder(KartCommercial kart) {
+        getPlaceOrderService().placeOrder(kart, this);
+    }
+
+    private final PlaceOrderServiceInterface getPlaceOrderService() {
         return placeOrderService;
     }
 
