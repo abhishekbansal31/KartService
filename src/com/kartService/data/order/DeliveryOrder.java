@@ -17,7 +17,7 @@ public class DeliveryOrder extends Order {
     }
 
     public DeliveryOrder(long consumerId, long distributorId, List<ItemSellable> items, String deliveryAddress) {
-        this(consumerId, distributorId, items, deliveryAddress, new DeliveryPlaceOrderService());
+        this(consumerId, distributorId, items, deliveryAddress, DeliveryPlaceOrderService.getInstance());
     }
     public DeliveryOrder(long consumerId, long distributorId, List<ItemSellable> items, String deliveryAddress, PlaceOrderServiceInterface service) {
         this.setId(getNextId());

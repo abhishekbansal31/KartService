@@ -7,6 +7,23 @@ import com.kartService.data.user.consumer.Consumable;
 
 public class KartConsumerService implements KartConsumerServiceInterface {
 
+    private static volatile KartConsumerServiceInterface instance = null;
+
+    private KartConsumerService() {
+
+    }
+
+    public static KartConsumerServiceInterface getInstance() {
+        if(instance==null) {
+            synchronized(KartConsumerService.class) {
+                if(instance == null) {
+                    instance = new KartConsumerService();
+                }
+            }
+        }
+        return instance;
+    }
+    
     @Override
     public Map<Long, Consumable> getConsumers(KartCommercial kart) {
         try {

@@ -11,7 +11,7 @@ public class Restaurent extends Distributable {
 
 
     public Restaurent(KartCommercial kart, String name, String address, String phone) {
-        this(kart, name, address, phone, new ItemService());
+        this(kart, name, address, phone, ItemService.getInstance());
     }
 
     public Restaurent(KartCommercial kart, String name, String address, String phone, ItemServiceInterface service) {

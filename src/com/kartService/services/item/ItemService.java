@@ -5,6 +5,22 @@ import com.kartService.data.user.distributor.Distributable;
 
 public class ItemService implements ItemServiceInterface {
 
+    private static volatile ItemServiceInterface instance = null;
+    private ItemService() {
+
+    }
+
+    public static ItemServiceInterface getInstance() {
+        if(instance==null) {
+            synchronized(ItemService.class) {
+                if(instance == null) {
+                    instance = new ItemService();
+                }
+            }
+        }
+        return instance;
+    }
+
     public void addItemToDistributor(Distributable distributor, ItemSellable item) {
         try {
             if(item!=null && distributor!=null) {

@@ -9,7 +9,7 @@ import com.kartService.services.order.placeOrder.PlaceOrderServiceInterface;
 public class DiningOrder extends Order {
     
     public DiningOrder(long consumerId, long distributorId, List<ItemSellable> items) {
-        this(consumerId, distributorId, items, new DiningPlaceOrderService());
+        this(consumerId, distributorId, items, DiningPlaceOrderService.getInstance());
     }
     public DiningOrder(long consumerId, long distributorId, List<ItemSellable> items, PlaceOrderServiceInterface service) {
         this.setId(getNextId());

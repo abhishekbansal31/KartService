@@ -7,6 +7,23 @@ import com.kartService.data.user.distributor.Distributable;
 
 public class KartDistributorService implements KartDistributorServiceInterface {
 
+    private static volatile KartDistributorServiceInterface instance = null;
+
+    private KartDistributorService() {
+
+    }
+
+    public static KartDistributorServiceInterface getInstance() {
+        if(instance==null) {
+            synchronized(KartDistributorService.class) {
+                if(instance == null) {
+                    instance = new KartDistributorService();
+                }
+            }
+        }
+        return instance;
+    }
+    
     public Map<Long, Distributable> getDistributorsFromKart(KartCommercial kart) {
         try {
             if(kart!=null) {

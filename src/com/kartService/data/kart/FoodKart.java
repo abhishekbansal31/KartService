@@ -7,7 +7,7 @@ import com.kartService.services.user.distributor.KartDistributorServiceInterface
 
 public class FoodKart extends KartCommercial {
     public FoodKart() {
-        this(new KartDistributorService(), new KartConsumerService());
+        this(KartDistributorService.getInstance(), KartConsumerService.getInstance());
     }
 
     public FoodKart(KartDistributorServiceInterface distributorService, KartConsumerServiceInterface consumerService) {
