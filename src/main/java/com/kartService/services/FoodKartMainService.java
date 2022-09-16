@@ -18,6 +18,11 @@ import com.kartService.data.user.distributor.Restaurent;
 
 public class FoodKartMainService {
     public static void main(String[] args) {
+    	FoodKartMainService service = new FoodKartMainService();
+    	service.runService();
+    }
+    
+    public void runService() {
 
         KartCommercial kart = new FoodKart();
 

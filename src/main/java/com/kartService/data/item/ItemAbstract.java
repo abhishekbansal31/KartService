@@ -1,6 +1,7 @@
 package com.kartService.data.item;
 
-public abstract class ItemAbstract implements ItemInterface {
+public abstract class ItemAbstract implements ItemInterface
+{
     
     private long id;
     private String name;
